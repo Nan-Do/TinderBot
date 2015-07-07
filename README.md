@@ -5,3 +5,8 @@ The source code requires several dependencies:
   Pynder to interact with the tinder api (altough must be heavily patched to be used)
   opencv to handle the eigenfaces
   Jinja2 and webpy to run the web app
+  PyDatalog for the logic engine
+  textBlob for the natural language detection.
+  And several others
+  
+Most of them are included in the dist-packages. The big ones like opencv must be installed separately for obvious reasons
