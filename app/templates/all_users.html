@@ -1,0 +1,11 @@
+<html>
+  <head>
+      <title>Tinder Users</title>
+  </head>
+  <body>
+      <h1>Users:</h1>
+      {% for user in users %}
+      <a href="/user/{{ user.id }}"><img src="../{{ user.picture }}" height="50" width="50"></a> {{ user.name }} {{ user.age }} <br>
+      {% endfor %}
+  </body>
+</html>

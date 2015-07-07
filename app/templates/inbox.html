@@ -1,0 +1,46 @@
+<html>
+<head>
+<script>
+function getRadioValue(theRadioGroup)
+{
+    var elements = document.getElementsByName(theRadioGroup);
+    for (var i = 0, l = elements.length; i < l; i++)
+    {
+        if (elements[i].checked)
+        {
+            return elements[i].value;
+        }
+    }
+}
+function selected(number){
+	var user = getRadioValue("user");
+	window.location.href = "/inbox/" + user;
+}
+</script>
+<meta http-equiv="refresh" content="30" />
+</head>
+<body>
+<h1>Inbox:</h1>
+<div style="width: 100%;">
+   <div style="float:left; width: 20%">
+   <form action="inbox.html">
+   <table>
+   {% for match in matches %}
+   <tr id="tr_{{ loop.index }}"><td><input class="checked" type="radio" name="user" onclick="selected({{ loop.index }})" value="{{ match.id }}">
+   <img src="../{{ match.image_paths[0] }}" height="50" width="50"> {{ match.name }} {{ match.age }}
+   {% if match.new_activity %} (*) {% endif -%}</td></tr>
+   {% endfor %}
+   </table>
+   </form>
+   </div>
+   <div style="float:left;">
+   <table>
+    {% for message in messages %}
+   	<tr><td style="text-align:right;">{{ message.sender }}:</td><td> {{ message.body }} ({{ message.polarity }})</td></tr>
+   	{% endfor %}
+   </table>
+   </div>
+</div>
+<div style="clear:both; text-align:center;"></div>
+</body>
+</html>

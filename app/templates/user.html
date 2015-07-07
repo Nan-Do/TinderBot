@@ -1,0 +1,27 @@
+<html>
+  <head>
+      <title>Tinder User</title>
+  </head>
+  <body>
+      <h1>User description:</h1>
+      <ul>
+      <li>Name: {{ name }}</li>
+      <li>Age: {{ age }}</li>
+      <li>Bio: {{ bio }}</li>
+      <li>Distance: {{ distance }} ({{ distance_unit }})</li>
+      <li>Last connection: {{ ping_time }}</li>
+      <li>Friends: {{ common_friends }}</li>
+      {% if decision %}
+      <form action="/change_decision/{{ id }}" method="post">
+        <li>Decission: {{ decision }}
+        <input type="submit" value="Change">
+        <input type="hidden" name="new_decision" value="{{ new }}"></form>
+      {% endif -%}
+      </ul>
+
+      <h2>Pictures:</h2>
+      {% for path in image_paths %}
+      <img src="../{{ path }}">
+      {% endfor %}
+  </body>
+</html>

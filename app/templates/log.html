@@ -1,0 +1,23 @@
+<html>
+  <head>
+      <title>Actions</title>
+  </head>
+  <body>
+  <h1>Actions:</h1>
+  {% for log_action in log_actions %}
+  {{ log_action.time }}: {{log_action.action}} <a href="/user/{{log_action.user_id}}">{{log_action.user_id}}</a><br>
+  {% endfor %}
+  <div>
+  {% if prev_q %}
+  	<b><a href="/log?start={{ prev_val }}">previous</a></b>
+  {% else %}
+  	<b>previous</b>
+  {% endif %}
+  {% if next_q %}
+  	<b><a href="/log?start={{ next_val }}">next</a></b>
+  {% else %}
+  	<b>next</b>
+  {% endif %}
+  </div>
+  </body>
+</html>

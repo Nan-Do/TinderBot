@@ -1,0 +1,1 @@
+accept(X) <= user_id(X) & prediction(X, "Yes")

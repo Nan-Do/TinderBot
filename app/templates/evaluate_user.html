@@ -1,0 +1,31 @@
+<html>
+  <head>
+      <title>Tinder User</title>
+  </head>
+  <body>
+  	  {% if model_trained %}
+      <div style="color:red">Model Trained!!!</div>
+      {% endif -%}
+      <h1>User description:</h1>
+      <ul>
+      <li>Name: {{ name }}</li>
+      <li>Age: {{ age }}</li>
+      <li>Bio: {{ bio }}</li>
+      <li>Distance: {{ distance }} ({{ distance_unit }})</li>
+      <li>Last connection: {{ ping_time }}</li>
+      <li>Friends: {{ common_friends }}</li>
+      </ul>
+      
+      <h2>Pictures:</h2>
+      {% for path in image_paths %}
+      <img src="{{ path }}">
+      {% endfor %}
+
+      <form action="/process_user/{{ id }}" method="post">
+      	<div>
+      	  <input type="submit" name="select_button" value={{ yes }}>
+      	  <input type="submit" name="select_button" value={{ no }}>
+      	</div>
+      </form>
+  </body>
+</html>
